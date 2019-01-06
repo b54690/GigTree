@@ -1,0 +1,42 @@
+<ion-tabs>
+    <ion-tab tab="watchlist">
+        <ion-router-outlet name="watchlist"></ion-router-outlet>
+    </ion-tab>
+    <ion-tab tab="groups">
+        <ion-router-outlet name="groups"></ion-router-outlet>
+    </ion-tab>
+    <ion-tab></ion-tab>
+    <ion-tab tab="tickets">
+        <ion-router-outlet name="tickets"></ion-router-outlet>
+    </ion-tab>
+    <ion-tab tab="account">
+        <ion-router-outlet name="account"></ion-router-outlet>
+    </ion-tab>
+
+    <ion-tab-bar class="tab-bar" slot="bottom">
+        <ion-tab-button tab="watchlist" href="/tabs/(watchlist:watchlist)">
+            <ion-icon name="eye"></ion-icon>
+            <ion-label>Watchlist</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="groups" href="/tabs/(groups:groups)">
+            <ion-icon name="contacts"></ion-icon>
+            <ion-label>Groups</ion-label>
+        </ion-tab-button>
+        <ion-tab-button>
+        </ion-tab-button>
+        <ion-tab-button tab="tickets" href="/tabs/(tickets:tickets)">
+            <ion-icon name="basket"></ion-icon>
+            <ion-label>Tickets</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="account" href="/tabs/(account:account)">
+            <ion-icon name="contact"></ion-icon>
+            <ion-label>Account</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-tabs>
+
+<ion-button class="tab-bar-scan-button">
+    <div class="tab-bar-scan-button-border"></div>
+    <ion-icon class="tab-bar-scan-button-icon" name="add"></ion-icon>
+    <ion-label class="tab-bar-scan-button-label"></ion-label>
+</ion-button>
