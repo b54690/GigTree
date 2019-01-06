@@ -2,76 +2,404 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
-:root {
-  /** primary **/
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56, 128, 255;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+.theme-custom {
 
-  /** secondary **/
-  --ion-color-secondary: #0cd1e8;
-  --ion-color-secondary-rgb: 12, 209, 232;
-  --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #0bb8cc;
-  --ion-color-secondary-tint: #24d6ea;
+  $fields: #F4F6F6;
+  $emptyFieldText: #AEAEAE;
+  $functionalIcons: #C4CACC;
+  $divider: #EBEBEB;
+  $links: #0096CE;
+  $success: #00AC00;
+  $fail: #F80000;
+  $action: #FDC513;
+  $actionDark: #EAB40A;
+  $mediumText: #303030;
+  $lightText: #939393;
+  $background: #FFFFFF;
+  $linearLeft: #F5F5F5;
+  $linearRight: #F8E9DA;
+  $shadow: #000000;
+  $tabBorder: #C0C0C0;
+  $headerBorder: #EAB40A;
+  $darkText: #000000;
+  $border: #C0C0C0;
 
-  /** tertiary **/
-  --ion-color-tertiary: #7044ff;
-  --ion-color-tertiary-rgb: 112, 68, 255;
-  --ion-color-tertiary-contrast: #ffffff;
-  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-  --ion-color-tertiary-shade: #633ce0;
-  --ion-color-tertiary-tint: #7e57ff;
+  //** Import fonts **//
+  @import url('https://fonts.googleapis.com/css?family=Lato:700');
 
-  /** success **/
-  --ion-color-success: #10dc60;
-  --ion-color-success-rgb: 16, 220, 96;
-  --ion-color-success-contrast: #ffffff;
-  --ion-color-success-contrast-rgb: 255, 255, 255;
-  --ion-color-success-shade: #0ec254;
-  --ion-color-success-tint: #28e070;
+  //** font family **//
+  --ion-font-family: 'Lato' !important;
+  font-family: 'Lato', 'Roboto', sans-serif !important;
 
-  /** warning **/
-  --ion-color-warning: #ffce00;
-  --ion-color-warning-rgb: 255, 206, 0;
-  --ion-color-warning-contrast: #ffffff;
-  --ion-color-warning-contrast-rgb: 255, 255, 255;
-  --ion-color-warning-shade: #e0b500;
-  --ion-color-warning-tint: #ffd31a;
+  //** Variables **//
+  //$logo: url("/assets/imgs/campaignLogo.png");
+  $image: url('/assets/imgs/campaignImage.png');
 
-  /** danger **/
-  --ion-color-danger: #f04141;
-  --ion-color-danger-rgb: 245, 61, 61;
-  --ion-color-danger-contrast: #ffffff;
-  --ion-color-danger-contrast-rgb: 255, 255, 255;
-  --ion-color-danger-shade: #d33939;
-  --ion-color-danger-tint: #f25454;
+  //** Colours **//
+  --iconSelected: #BF7300;
+  --darkText: #000000;
+  --ion-color-primary: #FDC513;
+  --ion-color-primary-contrast: #303030;
+  --ion-color-secondary: #F4F6F6;
+  --ion-color-secondary-contrast: #303030;
 
-  /** dark **/
-  --ion-color-dark: #222428;
-  --ion-color-dark-rgb: 34, 34, 34;
-  --ion-color-dark-contrast: #ffffff;
-  --ion-color-dark-contrast-rgb: 255, 255, 255;
-  --ion-color-dark-shade: #1e2023;
-  --ion-color-dark-tint: #383a3e;
+  .ion-color-facebook {
+    --ion-color-base: #3b5998;
+    --ion-color-contrast: #f7f7f7;
+  }
 
-  /** medium **/
-  --ion-color-medium: #989aa2;
-  --ion-color-medium-rgb: 152, 154, 162;
-  --ion-color-medium-contrast: #ffffff;
-  --ion-color-medium-contrast-rgb: 255, 255, 255;
-  --ion-color-medium-shade: #86888f;
-  --ion-color-medium-tint: #a2a4ab;
+  .ion-color-password-change {
+    --ion-color-base: #DADADA;
+    --ion-color-contrast: #000000;
+  }
 
-  /** light **/
-  --ion-color-light: #f4f5f8;
-  --ion-color-light-rgb: 244, 244, 244;
-  --ion-color-light-contrast: #000000;
-  --ion-color-light-contrast-rgb: 0, 0, 0;
-  --ion-color-light-shade: #d7d8da;
-  --ion-color-light-tint: #f5f6f9;
+  //** Background **//
+  ion-content {
+    --background: linear-gradient(to right, $linearLeft, $linearRight);
+    background-image: linear-gradient(to right, $linearLeft, $linearRight);
+  }
+
+  //** Texts and texts within a div body **//
+  div, p, h1, h2, h3, h4, h5, h6, strong {
+    color: var(--darkText);
+    font-size: large;
+  }
+
+  //** Ion-card **//
+  ion-card {
+    background: $background;
+    margin: 16px;
+
+    div, p, h1, h2, h3, h4, h5, h6 {
+      color: $mediumText !important;
+    }
+  }
+
+  .ionCardWithoutMargin {
+    margin-top: auto;
+  }
+
+  ion-card-header {
+    padding-bottom: 0 !important;
+  }
+
+  //** Ion-input **//
+  ion-input {
+    background: $fields;
+    color: $emptyFieldText;
+    border-bottom: solid 1px $linearRight;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+
+  //** Ion-item **//
+  ion-item {
+    --inner-padding-end: 0;
+    --inner-padding-start: 0;
+    --padding-end: 0;
+    --padding-start: 0;
+    --border-radius: 8px;
+  }
+
+  //** Divider **//
+  hr {
+    background: $fields;
+  }
+
+  //** Ion-tabs **//
+
+  ion-tab-button {
+    --color-selected: var(--iconSelected)
+  }
+
+  .back-button {
+    color: $darkText;
+  }
+
+  .forgotPw {
+    color: $links;
+  }
+
+  ion-tab-bar {
+    border-top: 1px solid $tabBorder;
+    height: 65px;
+  }
+
+  .tab-bar-scan-button {
+    --background: var(--ion-color-primary);
+    --color: var(--darkText);
+    --width: 90px;
+    --height: 90px;
+    --overflow: visible;
+    --border-radius: 50%;
+    --border-style: solid;
+    --border-width: 3px;
+    --border-color: #fff;
+    --background-activated: var(--ion-color-primary);
+    --box-shadow: 0 3px 3px -2px rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto auto -19.5px;
+  }
+
+  .tab-bar-scan-button-icon {
+    position: absolute;
+    top: 21px;
+    font-size: 33px;
+    --color-selected: #BF7300;
+    color: #303030;
+  }
+
+  .tab-bar-scan-button-label {
+    position: absolute;
+    bottom: 18.75px;
+    font-size: 10.5px;
+    text-transform: capitalize;
+    color: #303030;
+  }
+
+  .tab-bar-scan-button-outline {
+    position: absolute;
+    border: 1px solid;
+    border-radius:50%;
+    border-color: #C0C0C0 #fff #fff;
+    background:rgba(0,0,0,0);
+    color:white;
+    width:91px;
+    height:91px;
+    text-align:center;
+    line-height:100px;
+  }
+
+  //** Segment **//
+
+  ion-segment-button {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background: $action;
+    color: $mediumText;
+    text-transform: none;
+    font-size: 14px;
+    border: 2px solid $action;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  ion-segment-button.segment-button-unchecked {
+    font-weight: lighter;
+  }
+
+  ion-segment-button.segment-button-checked {
+    color: $mediumText !important;
+    border-bottom: 2px solid $mediumText;
+    font-weight: bolder;
+  }
+
+  .segmentContainer {
+    padding: 0;
+    background: $action;
+  }
+
+  //** Campaign images **//
+
+  .parallax-image {
+    height: 15em;
+    background: $image no-repeat fixed center 1em;
+    object-fit: contain;
+  }
+
+  .parallax-image-password-reset {
+    height: 14em;
+    background: $image no-repeat center -3%;
+    object-fit: contain;
+  }
+
+  .campaignImage {
+    display: block;
+    max-height: 100px;
+    margin: 5% auto 0 auto;
+  }
+
+  .campaignLogo {
+    display: block;
+    margin: auto auto 5% auto;
+  }
+
+  //** Buttons **//
+  ion-button {
+    --margin-top: 8px;
+    --margin-bottom: 8px;
+    --margin-start: 0;
+    --margin-end: 0;
+    --border-radius: 8px;
+    font-size: 18px;
+    text-transform: none;
+  }
+
+  //** About - help links **//
+  .left-content {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-weight: lighter;
+    color: $darkText !important;
+  }
+
+  //**Tab Title**//
+
+  .tab-header-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    --font-weight: bold;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: var(--ion-color-primary);
+    border-bottom: 1px solid $headerBorder;
+  }
+
+  .tab-header-title-button {
+    color: var(--darkText);
+    //--font-weight: 100;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    text-transform: capitalize;
+    font-size: 16px;
+  }
+
+  //** Links **//
+  /* unvisited link */
+  a:link {
+    color: $links;
+  }
+
+  /* visited link */
+  a:visited {
+    color: $links;
+  }
+
+  /* mouse over link */
+  a:hover {
+    color: $links;
+  }
+
+  /* selected link */
+  a:active {
+    color: $links;
+  }
+
+  /* components */
+
+  /* profile overview */
+
+  .profilePage {
+    align-content: center;
+    margin: auto auto 16px auto;
+    text-align: center;
+  }
+
+  .profileTextContainer {
+    margin-top: 5%;
+    text-align: center;
+  }
+
+  .profilePhotoContainer {
+    position: relative;
+    overflow: hidden;
+    width: 150px;
+    //height: 150px;
+    display: inline-block;
+  }
+
+
+  .profilePicture {
+    border-radius: 50%;
+    width: 87.91px;
+    height: 87.91px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+  }
+
+  .profileInput {
+    text-align: left;
+    margin-top: 4px;
+  }
+
+  .cornerButton {
+    position: absolute;
+    margin-left: 34px;
+    margin-top: -24px;
+    width: 30px;
+    height: 30px;
+    color: $actionDark;
+  }
+
+  .cornerButtonNonEdit {
+    top: 5%;
+    right: 5%;
+    color: $actionDark;
+  }
+
+  .profileHeader {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--darkText);
+  }
+
+  .profileSubHeader {
+    font-size: 16px;
+    margin-bottom: 8%;
+    text-transform: none;
+    font-weight: bold;
+  }
+
+  .profileCardContent {
+
+    text-align: left;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 13px;
+  }
+
+  .profileContentHeader {
+    font-size: 12px;
+    color: opacify($lightText, 0.6)
+  }
+
+  .profileContentPara {
+    font-size: 16px;
+    font-weight: normal;
+    padding-bottom: 16px;
+  }
+
+  .profileDivider {
+    border-bottom: 1px solid $fields;
+    flex-grow: 1;
+    margin-right: 22px;
+    margin-left: 21px
+  }
+
+
+  .profilePictureEdit {
+    border-radius: 50%;
+    width: 119.91px;
+    height: 119.91px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+  }
+
+  .profileEditFormHeader {
+    font-size: 16px;
+    color: $darkText;
+    text-align: left;
+    text-transform: none;
+  }
 }
+
