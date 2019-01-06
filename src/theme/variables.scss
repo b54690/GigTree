@@ -14,10 +14,10 @@
   $action: #FDC513;
   $actionDark: #EAB40A;
   $mediumText: #303030;
-  $lightText: #939393;
+  $lightText: #e0e0e0;
   $background: #FFFFFF;
   $linearLeft: #F5F5F5;
-  $linearRight: #F8E9DA;
+  $linearRight: #FFF;
   $shadow: #000000;
   $tabBorder: #C0C0C0;
   $headerBorder: #EAB40A;
@@ -36,11 +36,11 @@
   $image: url('/assets/imgs/campaignImage.png');
 
   //** Colours **//
-  --iconSelected: #BF7300;
-  --darkText: #000000;
-  --ion-color-primary: #FDC513;
-  --ion-color-primary-contrast: #303030;
-  --ion-color-secondary: #F4F6F6;
+  --iconSelected: #57a8ca;
+  --darkText: #3F81C7;
+  --ion-color-primary: #57a8ca;
+  --ion-color-primary-contrast: #eAeAeA;
+  --ion-color-secondary: #57a8ca;
   --ion-color-secondary-contrast: #303030;
 
   .ion-color-facebook {
@@ -149,9 +149,9 @@
   .tab-bar-scan-button-icon {
     position: absolute;
     top: 21px;
-    font-size: 33px;
-    --color-selected: #BF7300;
-    color: #303030;
+    font-size: 40px;
+    color: $lightText;
+    left: 19px;
   }
 
   .tab-bar-scan-button-label {
