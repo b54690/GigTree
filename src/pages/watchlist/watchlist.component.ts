@@ -1,12 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {SongkickApiService} from "../../services/songkick.api.service";
+import * as moment from 'moment'
+import {SongkickEvent} from "../../models/songkickEvent";
+import {Observable} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Component({
     selector: 'app-watchlist',
     templateUrl: 'watchlist.component.html',
 })
 export class WatchlistComponent implements OnInit {
-    public item: {};
+    public songKickEvents: Array<SongkickEvent> = [];
+    public items: any;
+    public eventMonth: [];
+    public eventDay: string;
 
     constructor(
         private http: SongkickApiService
@@ -14,16 +21,26 @@ export class WatchlistComponent implements OnInit {
     }
 
     public async ngOnInit() {
-        this.getSongKick()
+        this.getEvents()
     }
 
-    private getSongKick(): void {
-        this.http.get().subscribe(
-            (result: {}) => {
-                this.item = result;
-                console.log(this.item)
-            }
-        )
+    private getEvents() {
+        this.http.get().subscribe((result: Array<SongkickEvent>) => {
+            this.songKickEvents = result;
+            console.log(this.songKickEvents)
+        })
     }
+    // private getSongKick(): void {
+    //     this.http.get().subscribe(
+    //         (result: any) => {
+    //             this.items = result.resultsPage.results.calendarEntry;
+    //             if (this.items) {
+    //                 this.items.forEach(res => {
+    //
+    //                 })
+    //             }
+    //         })
+    // }
+
 
 }
