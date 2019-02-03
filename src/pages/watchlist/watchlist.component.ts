@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SongkickApiService} from "../../services/songkick.api.service";
-import * as moment from 'moment'
 import {SongkickEvent} from "../../models/songkickEvent";
-import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
 
 @Component({
     selector: 'app-watchlist',
@@ -11,9 +8,6 @@ import {map} from "rxjs/operators";
 })
 export class WatchlistComponent implements OnInit {
     public songKickEvents: Array<SongkickEvent> = [];
-    public items: any;
-    public eventMonth: [];
-    public eventDay: string;
 
     constructor(
         private http: SongkickApiService
@@ -30,6 +24,7 @@ export class WatchlistComponent implements OnInit {
             console.log(this.songKickEvents)
         })
     }
+
     // private getSongKick(): void {
     //     this.http.get().subscribe(
     //         (result: any) => {
