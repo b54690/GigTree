@@ -1,24 +1,18 @@
 export class SongkickEvent {
-    public event: object;
-    // public eventTime: string;
-    // public performer: string;
-    // public venue: string;
-    // public eventCity: string;
-    // public eventLink: string;
+    public displayName: string;
+    public location: string;
+    public start: string;
+    public uri: string;
 
     constructor(
-        event: object,
-        // eventTime: string,
-        // performer: string,
-        // venue: string,
-        // eventCity: string,
-        // eventLink: string
+        displayName: string,
+        location: string,
+        start: string,
+        uri: string
     ) {
-        this.event = event;
-        // this.eventTime = eventTime;
-        // this.performer = performer;
-        // this.venue = venue;
-        // this.eventCity = eventCity;
-        // this.eventLink = eventLink;
+        this.displayName = displayName;
+        this.location = location;
+        this.start = start;
+        this.uri = uri;
     }
 }

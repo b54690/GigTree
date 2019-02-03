@@ -1,11 +1,10 @@
 <ion-content>
     <ion-list *ngFor="let event of songKickEvents">
         <ion-item >
-            {{ event.event.displayName }}<br>
-            {{ event.event.start.date }}<br>
-            {{ event.event.location.city }}<br>
-            {{ event.event.id }}<br>
+            {{ event.displayName }}<br>
+            {{ event.location }}<br>
+            {{ event.start }}<br>
         </ion-item>
-        <ion-button block href="{{event.event.uri}}">More details</ion-button>
+        <ion-button block href="{{event.uri}}">More details</ion-button>
     </ion-list>
 </ion-content>

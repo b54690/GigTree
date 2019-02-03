@@ -8,7 +8,7 @@ import {map} from "rxjs/operators";
 
 @Injectable()
 export class SongkickApiService {
-    public items: any;
+    public items?: any;
 
     constructor(
         private http: HttpClient,
@@ -20,15 +20,20 @@ export class SongkickApiService {
         return this.getRequest<any>(apiUrl).pipe(
             map(results => {
                 this.items = results.resultsPage.results.calendarEntry;
-                console.log(this.items);
-                let events: Array<SongkickEvent> = [];
-                this.items.forEach(res => {
-                    let event: SongkickEvent = new SongkickEvent(
-                        res.event,
-                    );
-                    events.push(event)
-                });
-                return events
+                if (this.items) {
+                    console.log(this.items);
+                    let events: Array<SongkickEvent> = [];
+                    this.items.forEach(res => {
+                        let event: SongkickEvent = new SongkickEvent(
+                            res.event.displayName,
+                            res.event.location.city,
+                            res.event.start.date,
+                            res.event.uri
+                        );
+                        events.push(event)
+                    });
+                    return events
+                }
             })
         );
     }
