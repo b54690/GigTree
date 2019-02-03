@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {SongkickApiService} from "../../services/songkick.api.service";
+import {SongkickEvent} from "../../models/songkickEvent";
 
 @Component({
     selector: 'app-watchlist',
     templateUrl: 'watchlist.component.html',
 })
 export class WatchlistComponent implements OnInit {
-    public item: {};
+    public songKickEvents: Array<SongkickEvent> = [];
 
     constructor(
         private http: SongkickApiService
@@ -14,16 +15,27 @@ export class WatchlistComponent implements OnInit {
     }
 
     public async ngOnInit() {
-        this.getSongKick()
+        this.getEvents()
     }
 
-    private getSongKick(): void {
-        this.http.get().subscribe(
-            (result: {}) => {
-                this.item = result;
-                console.log(this.item)
-            }
-        )
+    private getEvents() {
+        this.http.get().subscribe((result: Array<SongkickEvent>) => {
+            this.songKickEvents = result;
+            console.log(this.songKickEvents)
+        })
     }
+
+    // private getSongKick(): void {
+    //     this.http.get().subscribe(
+    //         (result: any) => {
+    //             this.items = result.resultsPage.results.calendarEntry;
+    //             if (this.items) {
+    //                 this.items.forEach(res => {
+    //
+    //                 })
+    //             }
+    //         })
+    // }
+
 
 }
